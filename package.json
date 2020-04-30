@@ -1,0 +1,31 @@
+{
+  "name": "express-tdd",
+  "description": "Express application based on Test Driven Development.",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./src/bin/www",
+    "nodemon": "nodemon ./src/bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/totodile/express-tdd.git"
+  },
+  "author": "William Souza",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/totodile/express-tdd/issues"
+  },
+  "homepage": "https://github.com/totodile/express-tdd",
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
