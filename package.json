@@ -8,7 +8,14 @@
     "nodemon": "nodemon ./src/bin/www"
   },
   "lint-staged": {
-    "*.js": ["standard"]
+    "*.js": [
+      "standard"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "repository": {
     "type": "git",
@@ -29,6 +36,7 @@
     "pug": "^2.0.4"
   },
   "devDependencies": {
+    "husky": "^4.2.5",
     "lint-staged": "^10.2.1",
     "nodemon": "^2.0.3",
     "standard": "^14.3.3"
