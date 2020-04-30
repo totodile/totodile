@@ -8,16 +8,6 @@
     "nodemon": "nodemon ./src/bin/www",
     "test": "jest"
   },
-  "lint-staged": {
-    "*.js": [
-      "standard --fix"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/totodile/express-tdd.git"
