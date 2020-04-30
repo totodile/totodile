@@ -7,6 +7,9 @@
     "start": "node ./src/bin/www",
     "nodemon": "nodemon ./src/bin/www"
   },
+  "lint-staged": {
+    "*.js": ["standard"]
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/totodile/express-tdd.git"
@@ -26,6 +29,7 @@
     "pug": "^2.0.4"
   },
   "devDependencies": {
+    "lint-staged": "^10.2.1",
     "nodemon": "^2.0.3",
     "standard": "^14.3.3"
   }
