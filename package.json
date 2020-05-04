@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/totodile/totodile",
   "dependencies": {
+    "bootstrap": "^4.4.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
@@ -27,6 +28,9 @@
     "pug": "^2.0.4"
   },
   "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
     "husky": "^4.2.5",
     "jest": "^25.5.2",
     "lint-staged": "^10.2.1",
