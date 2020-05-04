@@ -1,2 +1,2 @@
-# express-tdd
-Express application based on Test Driven Development.
+# totodile
+Express application based on Test Driven Development and MVC.
