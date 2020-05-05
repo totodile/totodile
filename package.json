@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node ./src/bin/www",
     "nodemon": "nodemon ./src/bin/www",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "gulp"
   },
   "repository": {
     "type": "git",
