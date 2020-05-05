@@ -1,4 +1,17 @@
 extends ../layout
 
 block content
-  h1= title
+  h1.mb-4= title
+  .row
+    .col-md-6
+      form(action='', method='POST')
+        .form-group
+          label(for='email') Email
+          input.form-control#email(type='email', name='email')
+        .form-group
+          label(for='password') Password
+          input.form-control#password(type='password', name='password')
+        .form-group.form-check
+          input.form-check-input#keep(type='checkbox', name='keep')
+          label.form-check-label(for='keep') Keep me logged in
+        button.btn.btn-success(type='submit') Login
