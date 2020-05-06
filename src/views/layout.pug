@@ -1,8 +1,10 @@
 doctype html
 html
   head
-    title= title
+    title= title + ' - '
+      | #{process.env.APP_NAME || 'Totodile'}
     link(rel='stylesheet', href='css/app.css')
+    link(rel="shortcut icon", href="img/icons/favicon.ico", type="image/x-icon")
   body
     .container.pt-4
       ul.list-inline
