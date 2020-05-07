@@ -1,8 +1,17 @@
+require('../database')
+const User = require('../app/models/User')
+
 const createError = require('http-errors')
 const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
+const flash = require('express-flash')
+const session = require('express-session')
+const methodOverride = require('method-override')
+
+const passport = require('passport')
+const initializePassport = require('../config/passport')
 
 const indexRouter = require('../routes/index')
 const apiRouter = require('../routes/api')
@@ -10,11 +19,29 @@ const authRouter = require('../routes/auth')
 
 const app = express()
 
-require('../database')
+initializePassport(
+  passport,
+  email => User.findOne({
+    where: { email: email }
+  }),
+  id => User.findOne({
+    where: { id: id }
+  })
+)
 
 // view engine setup
 app.set('views', path.join('src', 'views'))
 app.set('view engine', 'pug')
+
+app.use(flash())
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(methodOverride('_method'))
 
 app.use(logger('dev'))
 app.use(express.json())

@@ -1,10 +1,9 @@
 const express = require('express')
 const router = express.Router()
+const { isAuth } = require('../app/middlewares/auth')
 
-// controllers
 const homeController = require('../app/controllers/homeController')
 
-/* GET home page. */
-router.get('/', homeController.index)
+router.get('/', isAuth, homeController.index)
 
 module.exports = router

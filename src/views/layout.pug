@@ -7,11 +7,5 @@ html
     link(rel="shortcut icon", href="img/icons/favicon.ico", type="image/x-icon")
   body
     .container.pt-4
-      ul.list-inline
-        li.list-inline-item 
-          a(href="/") Home
-        li.list-inline-item 
-          a(href="/login") Login
-        li.list-inline-item
-          a(href="/register") Register
+      include partials/navbar
       block content

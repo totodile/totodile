@@ -10,15 +10,16 @@ module.exports = {
     let { name, email, password } = req.body
     password = await bcrypt.hash(password, 10)
 
-    const user = await User.findAll({
-      limit: 1, where: { email: email }
+    const user = await User.findOne({
+      where: { email: email }
     })
 
-    if (user.length) {
+    if (user) {
       return res.status(409).json({ errors: [{ email: 'email already exists' }] })
     }
 
-    const newUser = await User.create({ name, email, password })
-    return res.status(201).json(newUser)
+    await User.create({ name, email, password })
+
+    res.redirect('/login')
   }
 }

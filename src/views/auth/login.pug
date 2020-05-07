@@ -4,6 +4,8 @@ block content
   h1.mb-4= title
   .row
     .col-md-6
+      if (messages.error)
+        .alert.alert-danger= messages.error
       form(action='', method='POST')
         .form-group
           label(for='email') Email
