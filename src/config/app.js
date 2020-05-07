@@ -3,12 +3,10 @@ const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
-const session = require('express-session')
 
 const indexRouter = require('../routes/index')
 const apiRouter = require('../routes/api')
 const authRouter = require('../routes/auth')
-const flash = require('express-flash')
 
 const app = express()
 
@@ -18,16 +16,6 @@ require('../database')
 app.set('views', path.join('src', 'views'))
 app.set('view engine', 'pug')
 
-// session setup
-app.use(
-  session({
-    secret: process.env.SECRET,
-    resave: true,
-    saveUninitialized: true
-  })
-)
-
-app.use(flash())
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))

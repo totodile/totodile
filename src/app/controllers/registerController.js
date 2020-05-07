@@ -15,7 +15,7 @@ module.exports = {
     })
 
     if (user.length) {
-      return res.status(409).json({ error: 'user already exists' })
+      return res.status(409).json({ errors: [{ email: 'email already exists' }] })
     }
 
     const newUser = await User.create({ name, email, password })
