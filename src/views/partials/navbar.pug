@@ -8,5 +8,5 @@ ul.list-inline
       a(href='/register') Register
   if (user)
     li.list-inline-item
-      form(action='/logout?_method=DELETE', method='POST')
-        input(type='submit', value='Logout') 
+      form#logout(action='/logout?_method=DELETE', method='POST')
+        a(href='javascript:{}', onclick="document.getElementById('logout').submit(); return false;") Logout

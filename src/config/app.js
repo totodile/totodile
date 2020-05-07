@@ -1,5 +1,4 @@
 require('../database')
-const User = require('../app/models/User')
 
 const createError = require('http-errors')
 const express = require('express')
@@ -13,21 +12,12 @@ const methodOverride = require('method-override')
 const passport = require('passport')
 const initializePassport = require('../config/passport')
 
-const indexRouter = require('../routes/index')
+const webRouter = require('../routes/web')
 const apiRouter = require('../routes/api')
-const authRouter = require('../routes/auth')
 
 const app = express()
 
-initializePassport(
-  passport,
-  email => User.findOne({
-    where: { email: email }
-  }),
-  id => User.findOne({
-    where: { id: id }
-  })
-)
+initializePassport(passport)
 
 // view engine setup
 app.set('views', path.join('src', 'views'))
@@ -49,7 +39,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join('src', 'public')))
 
-app.use('/', [indexRouter, authRouter])
+app.use('/', webRouter)
 app.use('/api', apiRouter)
 
 // catch 404 and forward to error handler
