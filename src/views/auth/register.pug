@@ -4,6 +4,11 @@ block content
   h1.mb-4= title
   .row
     .col-md-6
+      if (messages.error)
+        .alert.alert-danger
+          ul.mb-0.pl-4
+            each error in messages.error
+              li= error
       form(action='', method='POST')
         .form-group
           label(for='name') Name
